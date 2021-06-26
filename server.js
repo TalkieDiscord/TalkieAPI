@@ -31,6 +31,58 @@ router.get('/truths', function(req,res) {
   });
 });
 
+router.post('/add_topic', function (req, res) {
+  const stuff = req.body.topic;
+  fs.appendFile('./topics.txt' , `\n${stuff}`, (err) => {
+    if (err) {
+      res.sendStatus(500)
+      console.log(`Error reported: ${err}`)
+    }else {
+    console.log(`Topic added: ${stuff}`)
+    res.sendStatus(200)
+    }
+   })
+})
+
+router.post('/add_dare', function (req, res) {
+  const stuff = req.body.topic;
+  fs.appendFile('./dares.txt' , `\n${stuff}`, (err) => {
+    if (err) {
+      res.sendStatus(500)
+      console.log(`Error reported: ${err}`)
+    }else {
+    console.log(`Dare added: ${stuff}`)
+    res.sendStatus(200)
+    }
+   })
+})
+
+router.post('/add_truth', function (req, res) {
+  const stuff = req.body.topic;
+  fs.appendFile('./truths.txt' , `\n${stuff}`, (err) => {
+    if (err) {
+      res.sendStatus(500)
+      console.log(`Error reported: ${err}`)
+    }else {
+    console.log(`Dare added: ${stuff}`)
+    res.sendStatus(200)
+    }
+   })
+})
+
+router.post('/add_wyr', function (req, res) {
+  const stuff = req.body.topic;
+  fs.appendFile('./wyr.txt' , `\n${stuff}`, (err) => {
+    if (err) {
+      res.sendStatus(500)
+      console.log(`Error reported: ${err}`)
+    }else {
+    console.log(`WYR added: ${stuff}`)
+    res.sendStatus(200)
+    }
+   })
+})
+
 router.get('/wyr', function(req,res) {
   const wyr = fs.readFileSync("./wyr.txt") + "";
   const wrarray = wyr.split("\n");
