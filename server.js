@@ -19,7 +19,7 @@ var darray = dares.split("\n");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 25609;
+var port = process.env.PORT || 3017;
 var router = express.Router(); 
 
 router.get('/', function(req, res) {
