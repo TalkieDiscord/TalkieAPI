@@ -4,18 +4,6 @@ var bodyParser = require('body-parser');
 var fs = require("fs");
 var http = require("http");
 
-var topics = fs.readFileSync("./topics.txt") + "";
-var tarray = topics.split("\n");
-
-var truths = fs.readFileSync("./truths.txt") + "";
-var trarray = truths.split("\n");
-
-var wyr = fs.readFileSync("./wyr.txt") + "";
-var wrarray = wyr.split("\n");
-
-var dares = fs.readFileSync("./dares.txt") + "";
-var darray = dares.split("\n");
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -28,24 +16,32 @@ router.get('/', function(req, res) {
     });   
 });
 router.get('/topic', function(req, res) {
+  const topics = fs.readFileSync("./topics.txt") + "";
+  const tarray = topics.split("\n");
     res.json({ 
       'topic': tarray[Math.floor(Math.random() * tarray.length)]
     });
 });
 
 router.get('/truths', function(req,res) {
+  const truths = fs.readFileSync("./truths.txt") + "";
+  const trarray = truths.split("\n");
   res.json({ 
     'truth': trarray[Math.floor(Math.random() * trarray.length)]
   });
 });
 
 router.get('/wyr', function(req,res) {
+  const wyr = fs.readFileSync("./wyr.txt") + "";
+  const wrarray = wyr.split("\n");
   res.json({ 
     'wyr': wrarray[Math.floor(Math.random() * wrarray.length)]
   });
 });
 
 router.get('/dares', function(req, res) {
+  const dares = fs.readFileSync("./dares.txt") + "";
+  const darray = dares.split("\n");
   res.json({ 
     'dare': darray[Math.floor(Math.random() * darray.length)]
   });
