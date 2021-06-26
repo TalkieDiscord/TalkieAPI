@@ -64,7 +64,7 @@ router.post('/add_truth', function (req, res) {
       res.sendStatus(500)
       console.log(`Error reported: ${err}`)
     }else {
-    console.log(`Dare added: ${stuff}`)
+    console.log(`Truth added: ${stuff}`)
     res.sendStatus(200)
     }
    })
